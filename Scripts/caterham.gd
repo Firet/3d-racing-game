@@ -19,13 +19,15 @@ func _physics_process(delta):
 	var throttle_val = 0
 	var brake_val = 0
 
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("move_forward"):
 		throttle_val = 1.0
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("move_backward"):
+		throttle_val = -1.0
+	if Input.is_action_pressed("brake"):
 		brake_val = 1.0
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("move_left"):
 		steer_val = 1.0
-	elif Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("move_right"):
 		steer_val = -1.0
 	
 	engine_force = throttle_val * MAX_ENGINE_FORCE
