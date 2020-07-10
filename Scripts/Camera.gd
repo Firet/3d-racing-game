@@ -1,7 +1,7 @@
 extends Camera
 
 export (NodePath) var follow_this_path = null
-export var target_distance = 3.0
+export var target_distance = 4.0
 export var target_height = 2.0
 
 var follow_this = null
