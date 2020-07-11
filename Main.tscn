@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Textures/TexturesCom_MetalFloorsBare0063_2_seamless_S.jpg" type="Texture" id=1]
-[ext_resource path="res://Assets/Cars/Caterham/Car.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Models/Cars/Caterham/Car.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/camera.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Straight-track.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PlaneShape" id=1]
 
@@ -32,10 +33,37 @@ transform = Transform( 1, 0, 0, 0, -0.843401, 0.537285, 0, -0.537285, -0.843401,
 shadow_enabled = true
 
 [node name="Car" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 
 [node name="Car" parent="Car" instance=ExtResource( 2 )]
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.42428, 4.33854, -8.96471 )
+visible = false
 script = ExtResource( 3 )
 follow_this_path = NodePath("../Car/Car")
+
+[node name="Circuit" type="Spatial" parent="."]
+
+[node name="Straight-track " parent="Circuit" instance=ExtResource( 4 )]
+
+[node name="Straight-track 2" parent="Circuit" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6 )
+
+[node name="Straight-track 4" parent="Circuit" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12 )
+
+[node name="Straight-track 3" parent="Circuit" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18 )
+
+[node name="Straight-track 8" parent="Circuit" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24 )
+
+[node name="Straight-track 7" parent="Circuit" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30 )
+
+[node name="Straight-track 6" parent="Circuit" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 36 )
+
+[node name="Straight-track 5" parent="Circuit" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42 )
