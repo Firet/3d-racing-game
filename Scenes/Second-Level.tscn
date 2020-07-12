@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Textures/TexturesCom_MetalFloorsBare0063_2_seamless_S.jpg" type="Texture" id=1]
+[ext_resource path="res://Assets/Models/Cars/Caterham/Car.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/caterham.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/camera.gd" type="Script" id=4]
+
+[sub_resource type="PlaneShape" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 500, 500, 500 )
+
+[sub_resource type="PlaneMesh" id=3]
+material = SubResource( 2 )
+size = Vector2( 1000, 1000 )
+subdivide_width = 10
+subdivide_depth = 10
+
+[node name="Second-Level" type="Spatial"]
+
+[node name="Ground" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground"]
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Ground"]
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Sun" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.843401, 0.537285, 0, -0.537285, -0.843401, 0, 7.81737, 0 )
+shadow_enabled = true
+
+[node name="Car" type="Spatial" parent="."]
+
+[node name="Car" type="VehicleBody" parent="Car" instance=ExtResource( 2 )]
+mass = 58.6735
+script = ExtResource( 3 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.42428, 4.33854, -8.96471 )
+script = ExtResource( 4 )
+follow_this_path = NodePath("../Car/Car")
