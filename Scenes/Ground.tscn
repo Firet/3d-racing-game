@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Textures/TexturesCom_MetalFloorsBare0063_2_seamless_S.jpg" type="Texture" id=1]
+
+[sub_resource type="PlaneShape" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 500, 500, 500 )
+
+[sub_resource type="PlaneMesh" id=3]
+material = SubResource( 2 )
+size = Vector2( 1000, 1000 )
+subdivide_width = 10
+subdivide_depth = 10
+
+[node name="Ground" type="StaticBody"]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+mesh = SubResource( 3 )
+material/0 = null
