@@ -5,13 +5,13 @@
 [ext_resource path="res://Assets/Textures/TexturesCom_Roads0069_1_seamless_S.jpg" type="Texture" id=3]
 [ext_resource path="res://Scripts/camera.gd" type="Script" id=4]
 
-[sub_resource type="Curve3D" id=4]
+[sub_resource type="Curve3D" id=1]
 _data = {
 "points": PoolVector3Array( 4.57024, 0, 4.87492, -4.57024, 0, -4.87492, -21.2745, 0, -0.728703, 0.0154457, 0, 7.72682, -0.0154457, 0, -7.72682, -30.4818, 0, -19.9273, -16.1776, -0.119751, 3.18003, 16.1776, 0.119751, -3.18003, -10.3329, 0, -40.0032, -4.98759, 3.53308, -21.4945, 4.98759, -3.53308, 21.4945, 24.524, 0.64563, -43.9543, -5.60938, 0.910767, -10.3932, 5.60938, -0.910767, 10.3932, 49.1036, -0.0130615, -31.3283, -5.17264, 0.200928, -16.5715, 5.17264, -0.200928, 16.5715, 38.2164, 0.96814, 2.43683, 3.02074, 4.4458, -13.5045, -3.02074, -4.4458, 13.5045, 15.3239, -0.00012207, 25.1867, 1.59921, 0, -15.6368, -1.59921, 0, 15.6368, 25.4838, -0.00012207, 55.9843, 17.5914, 0, 8.35149, -17.5914, 0, -8.35149, -29.4228, 5.40417, 46.5667, -4.51157, 0, 19.7381, 4.51157, 0, -19.7381, -74.3195, 0, 34.4115, -3.38367, 0, 15.2266, 3.38367, 0, -15.2266, -81.3688, 0, -8.7304, -11.8426, -0.0997314, -1.6808, 11.8426, 0.0997314, 1.6808, -55.7092, 0, -27.3406, 2.53971, 1.40662, -13.1811, -2.53971, -1.40662, 13.1811, -43.0204, 0, -0.553173, -17.8843, 1.23499, -5.84414, 17.8843, -1.23499, 5.84414, -39.6368, 0, 28.2081, -3.83305, 0, 6.46025, 3.83305, 0, -6.46025, -9.7476, 0, 21.1588, 0, 0, 0, 0, 0, 0, -21.5791, 0, -1.03339 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
 
-[sub_resource type="Shader" id=5]
+[sub_resource type="Shader" id=2]
 code = "shader_type spatial;
 
 uniform sampler2D road_texture;
@@ -25,8 +25,8 @@ void fragment() {
 	ROUGHNESS = 0.0;
 }"
 
-[sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 5 )
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
 shader_param/road_texture = ExtResource( 3 )
 
 [node name="Second-Level" type="Spatial"]
@@ -51,7 +51,7 @@ follow_this_path = NodePath("../Car/Car")
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925537, 0 )
 
 [node name="Path" type="Path" parent="Circuit"]
-curve = SubResource( 4 )
+curve = SubResource( 1 )
 
 [node name="Road" type="CSGPolygon" parent="Circuit/Path"]
 invert_faces = true
@@ -63,7 +63,7 @@ path_rotation = 2
 path_local = false
 path_continuous_u = false
 path_joined = false
-material = SubResource( 6 )
+material = SubResource( 3 )
 
 [node name="CollisionShape" type="CSGPolygon" parent="Circuit/Path"]
 visible = false
