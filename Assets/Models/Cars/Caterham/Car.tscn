@@ -76,3 +76,14 @@ transform = Transform( 0.0254, 0, 0, 0, 0.0254, 0, 0, 0, 0.0254, 0, 0, 0 )
 [node name="CollisionShape" type="CollisionShape" parent="." index="11"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0117685, 0.705284, 0 )
 shape = SubResource( 1 )
+
+[node name="Spatial" type="Spatial" parent="." index="12" groups=[
+"reference",
+]]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 1.06266, 0, -2.60102 )
+
+[node name="Camera" type="Camera" parent="Spatial" index="0" groups=[
+"camera",
+]]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 1.60952, -1.34537 )
+current = true

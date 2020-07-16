@@ -19,6 +19,10 @@ config/name="3D-Racing-Game"
 run/main_scene="res://Scenes/First-Level.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GameMain="*res://Scripts/game_main.gd"
+
 [input]
 
 move_forward={

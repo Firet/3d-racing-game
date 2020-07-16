@@ -20,24 +20,24 @@ func _physics_process(delta):
 		
 		if (strength < MAX_VELOCITY):
 			strength += 20
-			print(strength)
+			#print(strength)
 		else:
 			strength = 0
 			
 	if Input.is_action_pressed("move_backward"): 
 		brakes += 0.5
-		print('break')
+		#print('break')
 	else: 
 		brakes = 0
 		
 	if Input.is_action_pressed("move_left"):
 		steer = 45
-		print('left')
+		#print('left')
 	elif Input.is_action_pressed("move_right"):
 		steer = -45
-		print('right')
+		#print('right')
 	else:
 		steer = 0
 
-# Is similar to phtsic process
+# Is similar to _physics_process
 	#func _input(event):
