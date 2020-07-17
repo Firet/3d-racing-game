@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Ground.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/Models/Cars/Caterham/Car.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Models/Cars/Caterham/Caterham.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Textures/TexturesCom_Roads0069_1_seamless_S.jpg" type="Texture" id=3]
 [ext_resource path="res://Scripts/camera.gd" type="Script" id=4]
 
@@ -40,12 +40,13 @@ shadow_enabled = true
 [node name="Car" type="Spatial" parent="."]
 transform = Transform( 0.883578, 0, 0.468285, 0, 1, 0, -0.468285, 0, 0.883578, -22.5176, 1.88086, 0 )
 
-[node name="Car" parent="Car" instance=ExtResource( 2 )]
+[node name="Caterham" parent="Car" instance=ExtResource( 2 )]
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.42428, 4.33854, -8.96471 )
+current = true
 script = ExtResource( 4 )
-follow_this_path = NodePath("../Car/Car")
+follow_this_path = NodePath("../Car/Caterham")
 
 [node name="Circuit" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925537, 0 )
