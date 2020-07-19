@@ -5,7 +5,7 @@
 ]]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
 
-[node name="Camera" type="Camera" parent="." groups=[
+[node name="camera" type="Camera" parent="." groups=[
 "camera",
 ]]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )

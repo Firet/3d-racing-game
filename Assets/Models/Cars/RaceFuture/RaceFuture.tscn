@@ -173,5 +173,7 @@ wheel_radius = 0.225
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0 )
 shape = SubResource( 3 )
 
-[node name="Camera" parent="." instance=ExtResource( 8 )]
+[node name="Camera" parent="." groups=[
+"camera_reference",
+] instance=ExtResource( 8 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -4.7, 1.4, 7.65727e-07 )
