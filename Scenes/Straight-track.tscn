@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Models/Tracks/Straight-track .obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Assets/Materials/Grid.tres" type="Material" id=2]
 [ext_resource path="res://Assets/Textures/grid.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Materials/Track-physicsmaterial.tres" type="PhysicsMaterial" id=4]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 3 )
@@ -18,6 +19,7 @@ extents = Vector3( 0.5, 0.5, 3 )
 extents = Vector3( 0.5, 0.5, 3 )
 
 [node name="Straight-track " type="StaticBody"]
+physics_material_override = ExtResource( 4 )
 
 [node name="Straight-track " type="MeshInstance" parent="."]
 mesh = ExtResource( 1 )
