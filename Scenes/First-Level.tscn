@@ -38,6 +38,7 @@ transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 8, 2, -
 [node name="Straight-track" type="Spatial" parent="Circuit"]
 
 [node name="Straight-track " parent="Circuit/Straight-track" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00236893, 0, 0.0153046 )
 
 [node name="Straight-track 2" parent="Circuit/Straight-track" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6 )

@@ -105,7 +105,7 @@ surfaces/2 = {
 }
 
 [sub_resource type="BoxShape" id=3]
-extents = Vector3( 1, 0.2, 0.4 )
+extents = Vector3( 1, 0.1, 0.5 )
 
 [node name="RaceFuture" type="VehicleBody"]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 0, 0 )

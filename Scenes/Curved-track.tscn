@@ -26,7 +26,7 @@ material/0 = ExtResource( 4 )
 physics_material_override = ExtResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Curved-track-base/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.485898, 0 )
 shape = SubResource( 1 )
 
 [node name="Curved-track-extern-barrier" type="MeshInstance" parent="."]
