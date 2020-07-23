@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Models/Cars/RaceFuture/paintBlue.material" type="Material" id=1]
 [ext_resource path="res://Assets/Models/Cars/RaceFuture/plastic.material" type="Material" id=2]
@@ -105,43 +105,49 @@ surfaces/2 = {
 }
 
 [sub_resource type="BoxShape" id=3]
-extents = Vector3( 1, 0.1, 0.5 )
+extents = Vector3( 1, 0.171992, 0.5 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.219806, 0.205733, 0.100646 )
 
 [node name="RaceFuture" type="VehicleBody"]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 0, 0 )
 script = ExtResource( 7 )
 
-[node name="body" type="MeshInstance" parent="."]
-transform = Transform( 0, 0, 0.75, 0, 0.75, 0, -0.75, 0, 0, -0.0375, 0.15, 0 )
+[node name="Mesh" type="Spatial" parent="."]
+transform = Transform( 0, 0, -0.75, 0, 0.75, 0, 0.75, 0, 0, -0.697585, 0.225, 0.2625 )
+
+[node name="body" type="MeshInstance" parent="Mesh"]
+transform = Transform( -1, 0, 1.42109e-14, 0, 1, 0, -1.42109e-14, 0, -1, -0.35, -0.1, -0.880113 )
 mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
 material/2 = null
 material/3 = null
 
-[node name="wheel_backLeft" type="MeshInstance" parent="."]
-transform = Transform( 0, 0, -0.75, 0, 0.75, 0, 0.75, 0, 0, -0.697585, 0.225, 0.2625 )
+[node name="wheel_backLeft" type="MeshInstance" parent="Mesh"]
+transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0, 0 )
 mesh = SubResource( 2 )
 material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="wheel_backRight" type="MeshInstance" parent="."]
-transform = Transform( 0, 0, 0.75, 0, 0.75, 0, -0.75, 0, 0, -0.697585, 0.225, -0.2625 )
+[node name="wheel_backRight" type="MeshInstance" parent="Mesh"]
+transform = Transform( -1, 0, 1.42109e-14, 0, 1, 0, -1.42109e-14, 0, -1, -0.7, 0, -5.96046e-08 )
 mesh = SubResource( 2 )
 material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="wheel_frontLeft" type="MeshInstance" parent="."]
-transform = Transform( 0, 0, -0.75, 0, 0.75, 0, 0.75, 0, 0, 0.442415, 0.225, 0.2625 )
+[node name="wheel_frontLeft" type="MeshInstance" parent="Mesh"]
+transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0, -1.52 )
 mesh = SubResource( 2 )
 material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="wheel_frontRight" type="MeshInstance" parent="."]
-transform = Transform( 0, 0, 0.75, 0, 0.75, 0, -0.75, 0, 0, 0.442415, 0.225, -0.2625 )
+[node name="wheel_frontRight" type="MeshInstance" parent="Mesh"]
+transform = Transform( -1, 0, 1.42109e-14, 0, 1, 0, -1.42109e-14, 0, -1, -0.7, 0, -1.52 )
 mesh = SubResource( 2 )
 material/0 = null
 material/1 = null
@@ -169,11 +175,27 @@ transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -0.7, 0
 use_as_traction = true
 wheel_radius = 0.225
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0 )
+[node name="CarBodyCollision" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0 )
 shape = SubResource( 3 )
 
 [node name="Camera" parent="." groups=[
 "camera_reference",
 ] instance=ExtResource( 8 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -4.7, 1.4, 7.65727e-07 )
+transform = Transform( -1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, -4.7, 1.4, 0 )
+
+[node name="FrontRightCollision" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390344, 0.234296, 0.319818 )
+shape = SubResource( 4 )
+
+[node name="BackRightCollision" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.709656, 0.234296, 0.319818 )
+shape = SubResource( 4 )
+
+[node name="BackLeftCollision" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.709656, 0.234296, -0.280182 )
+shape = SubResource( 4 )
+
+[node name="FrontLeftCollision" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390344, 0.234296, -0.280182 )
+shape = SubResource( 4 )
