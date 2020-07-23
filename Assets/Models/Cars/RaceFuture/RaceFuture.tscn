@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Models/Cars/RaceFuture/window.material" type="Material" id=4]
 [ext_resource path="res://Assets/Models/Cars/RaceFuture/carTire.material" type="Material" id=5]
 [ext_resource path="res://Assets/Models/Cars/RaceFuture/paintYellow.material" type="Material" id=6]
-[ext_resource path="res://Scripts/raceFutureCar.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/caterham.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ArrayMesh" id=1]

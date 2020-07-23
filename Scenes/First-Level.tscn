@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Ground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Straight-track.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Curved-track.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Models/Cars/RaceFuture/RaceFuture.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/reset.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/finish_lap_area.gd" type="Script" id=6]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 3.1615, 1.28641, 1 )
 
 [node name="First-Level" type="Spatial"]
 
@@ -17,7 +21,9 @@ shadow_enabled = true
 [node name="Car" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 
-[node name="RaceFuture" parent="Car" instance=ExtResource( 4 )]
+[node name="RaceFuture" parent="Car" groups=[
+"player",
+] instance=ExtResource( 4 )]
 
 [node name="Circuit" type="Spatial" parent="."]
 
@@ -101,4 +107,12 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="FinishLapArea" type="Area" parent="."]
+script = ExtResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="FinishLapArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.24266 )
+shape = SubResource( 1 )
 [connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
+[connection signal="body_entered" from="FinishLapArea" to="FinishLapArea" method="_on_Area_body_entered"]

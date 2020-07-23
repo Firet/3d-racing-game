@@ -3,6 +3,9 @@ extends Node
 var right_click = false
 var decreament = 0
 
+# number of laps
+var laps = 0
+
 # If zoom(fov) value is higher than 179 and less than 1 throws error
 # Max and min values are set for convenience
 const MAX_ZOOM = 110
