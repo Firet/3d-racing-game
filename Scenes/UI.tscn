@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/reset.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/changeLevel.gd" type="Script" id=2]
+
+[node name="UI" type="Node"]
+
+[node name="ResetButton" type="Button" parent="."]
+margin_left = 33.8896
+margin_top = 23.3266
+margin_right = 119.89
+margin_bottom = 43.3266
+text = "Reset Level"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeLevelButton" type="Button" parent="."]
+margin_left = 35.21
+margin_top = 54.5755
+margin_right = 138.21
+margin_bottom = 74.5755
+text = "Change Circuit"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="ResetButton" to="ResetButton" method="_on_Button_pressed"]
+[connection signal="pressed" from="ChangeLevelButton" to="ChangeLevelButton" method="_on_ChangeLevelButton_pressed"]

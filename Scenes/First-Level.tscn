@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/Straight-track.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Curved-track.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Models/Cars/RaceFuture/RaceFuture.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scripts/reset.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/finish_lap_area.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/raceFuture.gd" type="Script" id=7]
 
@@ -99,22 +99,12 @@ transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 7, 0, 4
 [node name="Straight-track 18" parent="Circuit/Straight-track" instance=ExtResource( 2 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 7, 0, -7 )
 
-[node name="ResetButton" type="Button" parent="."]
-margin_left = 33.8896
-margin_top = 23.3266
-margin_right = 119.89
-margin_bottom = 43.3266
-text = "Reset Level"
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="FinishLapArea" type="Area" parent="."]
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="FinishLapArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.24266 )
 shape = SubResource( 1 )
-[connection signal="pressed" from="ResetButton" to="ResetButton" method="_on_Button_pressed"]
+
+[node name="UI" parent="." instance=ExtResource( 5 )]
 [connection signal="body_entered" from="FinishLapArea" to="FinishLapArea" method="_on_Area_body_entered"]
