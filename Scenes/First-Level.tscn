@@ -97,7 +97,7 @@ transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 7, 0, 4
 [node name="Straight-track 18" parent="Circuit/Straight-track" instance=ExtResource( 2 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 7, 0, -7 )
 
-[node name="Button" type="Button" parent="."]
+[node name="ResetButton" type="Button" parent="."]
 margin_left = 33.8896
 margin_top = 23.3266
 margin_right = 119.89
@@ -114,5 +114,5 @@ script = ExtResource( 6 )
 [node name="CollisionShape" type="CollisionShape" parent="FinishLapArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.24266 )
 shape = SubResource( 1 )
-[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ResetButton" to="ResetButton" method="_on_Button_pressed"]
 [connection signal="body_entered" from="FinishLapArea" to="FinishLapArea" method="_on_Area_body_entered"]
