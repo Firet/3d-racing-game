@@ -3,8 +3,11 @@ extends Node
 var right_click = false
 var decreament = 0
 
+# totalLaps is customizable
+var totalLaps = 3
 # number of laps
-var laps = 0
+var currentLap = 0
+var time = 0
 
 # If zoom(fov) value is higher than 179 and less than 1 throws error
 # Max and min values are set for convenience
@@ -44,3 +47,7 @@ func _input(event):
 		get_tree().get_nodes_in_group("camera_reference")[0].rotation_degrees.y = 180
 	elif(right_click == false && decreament < 0):
 		get_tree().get_nodes_in_group("camera_reference")[0].rotation_degrees.y = 180
+
+func update_time():
+	get_tree().get_nodes_in_group("time")[0].text = "00:" + String(time)
+	#print(time)

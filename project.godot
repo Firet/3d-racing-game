@@ -23,6 +23,11 @@ config/icon="res://icon.png"
 
 GameMain="*res://Scripts/game_main.gd"
 
+[display]
+
+window/size/width=1366
+window/size/height=768
+
 [input]
 
 move_forward={

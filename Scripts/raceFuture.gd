@@ -16,6 +16,10 @@ export var brake_force_value = 5
 export var max_vel = 200
 export var max_back_vel = 150
 
+func _ready():
+	# This is to avoid see the mouse cursor
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 # Need to try if works great with physics process
 # Recommendation: when only use input, not use process
 # Similar to update in unity
@@ -58,3 +62,11 @@ func _process(delta):
 		
 	# Third argumenti is delta, related to time.
 	steering = move_toward(steering, direc_target, VEL_DIREC - delta)
+	
+	get_tree().get_nodes_in_group("velocity")[0].text = String(fwd_vel) + " Km/h"
+
+# warning-ignore:unused_argument
+func _input(event):
+	if Input.is_action_just_pressed("ui_cancel"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		
