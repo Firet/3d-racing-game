@@ -51,3 +51,7 @@ func _input(event):
 func update_time():
 	get_tree().get_nodes_in_group("time")[0].text = "00:" + String(time)
 	#print(time)
+
+func resetLapsAndTime():
+	GameMain.currentLap = 0
+	GameMain.time = 0
