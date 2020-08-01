@@ -5,7 +5,6 @@ var decreament = 0
 
 # totalLaps is customizable
 var totalLaps = 3
-# number of laps
 var currentLap = 0
 var time = 0
 
@@ -17,6 +16,23 @@ onready var camera = get_tree().get_nodes_in_group("camera_reference")[0].get_no
 
 
 func _input(event):
+	zoom_and_rotate_camera(event)
+
+func reset_laps_and_time():
+	GameMain.currentLap = 0
+	GameMain.time = 0
+
+func show_time_in_hud():
+	if(time < 10):
+		get_tree().get_nodes_in_group("time")[0].text = "00:0" + String(time)
+	elif(time < 60):
+		get_tree().get_nodes_in_group("time")[0].text = "00:" + String(time)
+	#TODO: show change in minutes
+	else:
+		# In this game time runs out?
+		get_tree().get_nodes_in_group("time")[0].text = "Time over"
+
+func zoom_and_rotate_camera(event):
 	if(event is InputEventMouseButton):
 		if event.pressed:
 			match event.button_index:
@@ -47,17 +63,3 @@ func _input(event):
 		get_tree().get_nodes_in_group("camera_reference")[0].rotation_degrees.y = 180
 	elif(right_click == false && decreament < 0):
 		get_tree().get_nodes_in_group("camera_reference")[0].rotation_degrees.y = 180
-
-func show_time_in_hud():
-	if(time < 10):
-		get_tree().get_nodes_in_group("time")[0].text = "00:0" + String(time)
-	elif(time < 60):
-		get_tree().get_nodes_in_group("time")[0].text = "00:" + String(time)
-	#TODO: show change in minutes
-	else:
-		# In this game time runs out?
-		get_tree().get_nodes_in_group("time")[0].text = "Time over"
-
-func resetLapsAndTime():
-	GameMain.currentLap = 0
-	GameMain.time = 0

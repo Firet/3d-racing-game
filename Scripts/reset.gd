@@ -2,14 +2,14 @@ extends Button
 
 # warning-ignore:unused_argument
 func _physics_process(delta):
-	resetByPressingResetKey()
+	reset_by_pressing_reset_key()
 
 # Reset level by clicking the UI button
 func _on_Button_pressed():
 	reset()
 
 # Reset level by pressing the reset keyboard key
-func resetByPressingResetKey():
+func reset_by_pressing_reset_key():
 	if Input.is_action_pressed("reset"):
 		reset()
 
