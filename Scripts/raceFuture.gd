@@ -20,10 +20,11 @@ func _ready():
 	# This is to avoid see the mouse cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-# Need to try if works great with physics process
+# Need to try if works better with physics process
 # Recommendation: when only use input, not use process
 # Similar to update in unity
 func _process(delta):
+	show_speed_meter_in_hud()
 	# Linear velocity x axis. basis related to matrix
 	# matrix is like the origin point
 	# X form its the multiplication of all (three) x values in matrix 
@@ -63,10 +64,15 @@ func _process(delta):
 	# Third argumenti is delta, related to time.
 	steering = move_toward(steering, direc_target, VEL_DIREC - delta)
 	
-	get_tree().get_nodes_in_group("velocity")[0].text = String(fwd_vel) + " Km/h"
 
 # warning-ignore:unused_argument
 func _input(event):
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
+func show_speed_meter_in_hud():
+		if(fwd_vel > 0):
+			get_tree().get_nodes_in_group("velocity")[0].text = String(fwd_vel) + " Km/h"
+		else:
+			get_tree().get_nodes_in_group("velocity")[0].text = "0 Km/h"
+			
