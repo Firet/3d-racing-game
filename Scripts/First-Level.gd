@@ -6,4 +6,4 @@ func _ready():
 
 func _on_Timer_timeout():
 	GameMain.time += 1
-	GameMain.update_time()
+	GameMain.show_time_in_hud()
