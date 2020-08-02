@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Ground.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/Models/Cars/Caterham/Caterham.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Cars/Caterham/Car.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Textures/TexturesCom_Roads0069_1_seamless_S.jpg" type="Texture" id=3]
 [ext_resource path="res://Scripts/camera.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Track.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -39,18 +40,19 @@ transform = Transform( 1, 0, 0, 0, -0.843401, 0.537285, 0, -0.537285, -0.843401,
 shadow_enabled = true
 
 [node name="Car" type="Spatial" parent="."]
-transform = Transform( 0.883578, 0, 0.468285, 0, 1, 0, -0.468285, 0, 0.883578, -22.5176, 1.88086, 0 )
+transform = Transform( 0.883578, 0, 0.468285, 0, 1, 0, -0.468285, 0, 0.883578, -12.6024, 2.9749, 0 )
 
-[node name="Caterham" parent="Car" instance=ExtResource( 2 )]
+[node name="Car" parent="Car" instance=ExtResource( 2 )]
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.42428, 4.33854, -8.96471 )
 current = true
 script = ExtResource( 4 )
-follow_this_path = NodePath("../Car/Caterham")
+follow_this_path = NodePath("../Car/Car")
 
 [node name="Circuit" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925537, 0 )
+visible = false
 
 [node name="Path" type="Path" parent="Circuit"]
 curve = SubResource( 1 )
@@ -78,5 +80,8 @@ path_rotation = 2
 path_local = false
 path_continuous_u = false
 path_joined = false
+
+[node name="Track" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.17935, 0 )
 
 [node name="UI" parent="." instance=ExtResource( 5 )]

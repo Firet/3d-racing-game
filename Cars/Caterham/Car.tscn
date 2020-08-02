@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Models/Cars/Caterham/caterham.gltf" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/caterham.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.884512, 0.451341, 1.65455 )
+
+[node name="Car" instance=ExtResource( 1 )]
+mass = 58.6735
+script = ExtResource( 2 )
+
+[node name="Lamp" parent="." index="5"]
+visible = false
+
+[node name="left_front" parent="." index="6"]
+transform = Transform( 1, 0, 0, 0, 1, -1.31134e-07, 0, 1.31134e-07, 1, 0.856, 0.37, 1.275 )
+use_as_steering = true
+wheel_roll_influence = 0.5
+wheel_radius = 0.32
+wheel_rest_length = 0.07
+suspension_travel = 0.05
+suspension_stiffness = 150.0
+suspension_max_force = 2000.0
+damping_compression = 0.8
+damping_relaxation = 0.8
+
+[node name="left_front" parent="left_front" index="0"]
+transform = Transform( 0.0254, 0, 0, 0, 0.0254, 0, 0, 0, 0.0254, 0, 0, 0 )
+
+[node name="left_rear" parent="." index="7"]
+transform = Transform( 1, 0, 0, 0, 1, -1.31134e-07, 0, 1.31134e-07, 1, 0.935, 0.37, -1.255 )
+use_as_traction = true
+wheel_roll_influence = 0.5
+wheel_radius = 0.32
+wheel_rest_length = 0.07
+wheel_friction_slip = 9.0
+suspension_travel = 0.05
+suspension_stiffness = 130.0
+suspension_max_force = 2000.0
+damping_compression = 0.6
+damping_relaxation = 0.6
+
+[node name="left_rear" parent="left_rear" index="0"]
+transform = Transform( 0.0254, 0, 0, 0, 0.0254, 0, 0, 0, 0.0254, 0, 0, 0 )
+
+[node name="right_front" parent="." index="8"]
+transform = Transform( 1, 0, 0, 0, 1, -1.31134e-07, 0, 1.31134e-07, 1, -0.856, 0.37, 1.275 )
+use_as_steering = true
+wheel_roll_influence = 0.5
+wheel_radius = 0.32
+wheel_rest_length = 0.07
+suspension_travel = 0.05
+suspension_stiffness = 150.0
+suspension_max_force = 2000.0
+damping_compression = 0.8
+damping_relaxation = 0.8
+
+[node name="right_front" parent="right_front" index="0"]
+transform = Transform( 0.0254, 0, 0, 0, 0.0254, 0, 0, 0, 0.0254, 0, 0, 0 )
+
+[node name="right_rear" parent="." index="9"]
+transform = Transform( 1, 0, 0, 0, 1, -1.31134e-07, 0, 1.31134e-07, 1, -0.935, 0.37, -1.255 )
+use_as_traction = true
+wheel_roll_influence = 0.5
+wheel_radius = 0.32
+wheel_rest_length = 0.07
+wheel_friction_slip = 9.0
+suspension_travel = 0.05
+suspension_stiffness = 130.0
+suspension_max_force = 2000.0
+damping_compression = 0.6
+damping_relaxation = 0.6
+
+[node name="right_rear" parent="right_rear" index="0"]
+transform = Transform( 0.0254, 0, 0, 0, 0.0254, 0, 0, 0, 0.0254, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="." index="11"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.631179, 0 )
+shape = SubResource( 1 )
