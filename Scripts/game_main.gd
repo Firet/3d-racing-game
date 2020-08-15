@@ -23,9 +23,9 @@ func reset_laps_and_time():
 	GameMain.time = 0
 
 func show_time_in_hud():
-	if(time < 10):
+	if time < 10:
 		get_tree().get_nodes_in_group("time")[0].text = "00:0" + String(time)
-	elif(time < 60):
+	elif time < 60:
 		get_tree().get_nodes_in_group("time")[0].text = "00:" + String(time)
 	#TODO: show change in minutes
 	else:
@@ -33,23 +33,23 @@ func show_time_in_hud():
 		get_tree().get_nodes_in_group("time")[0].text = "Time over"
 
 func zoom_and_rotate_camera(event):
-	if(event is InputEventMouseButton):
+	if event is InputEventMouseButton:
 		if event.pressed:
 			match event.button_index:
 				BUTTON_WHEEL_UP:
-					if(camera.fov > MIN_ZOOM):
+					if camera.fov > MIN_ZOOM:
 						camera.fov -= 5
 				BUTTON_WHEEL_DOWN:
-					if(camera.fov < MAX_ZOOM):
+					if camera.fov < MAX_ZOOM:
 						camera.fov += 5
-		if(event.button_index == BUTTON_RIGHT):
-			if(event.pressed):
+		if event.button_index == BUTTON_RIGHT:
+			if event.pressed:
 				right_click = true
 			else:
 				right_click = false
 				
 				
-	if(right_click && event is InputEventMouseMotion):
+	if right_click && event is InputEventMouseMotion:
 		# We access to camera reference to move it
 		decreament = 1
 		# Reference is an array. We access the first one
@@ -59,7 +59,7 @@ func zoom_and_rotate_camera(event):
 		get_tree().get_nodes_in_group("camera_reference")[0].rotate(Vector3(0, - decreament, 0), event.speed.x / 1000)
 		# Avoid to rotate z axis
 		get_tree().get_nodes_in_group("camera_reference")[0].rotation_degrees.z = 0
-	elif(right_click == false && decreament > 0):
+	elif right_click == false && decreament > 0:
 		get_tree().get_nodes_in_group("camera_reference")[0].rotation_degrees.y = 180
-	elif(right_click == false && decreament < 0):
+	elif right_click == false && decreament < 0:
 		get_tree().get_nodes_in_group("camera_reference")[0].rotation_degrees.y = 180

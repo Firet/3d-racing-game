@@ -33,7 +33,7 @@ func _input(event):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
 func show_speed_meter_in_hud():
-		if(fwd_vel > 0):
+		if fwd_vel > 0:
 			get_tree().get_nodes_in_group("velocity")[0].text = String(fwd_vel) + " Km/h"
 		else:
 			get_tree().get_nodes_in_group("velocity")[0].text = "0 Km/h"
@@ -54,7 +54,7 @@ func move_car(delta):
 	direc_target *= LIMIT_DIREC
 	
 	if Input.is_action_pressed("move_forward"):
-		if(fwd_vel < max_vel):
+		if fwd_vel < max_vel:
 			engine_force = engine_force_value
 		else:
 			engine_force = 0.0
@@ -66,10 +66,10 @@ func move_car(delta):
 		engine_force = 0.0
 	
 	if Input.is_action_pressed("move_backward"):
-		if(fwd_vel >= 1): 
+		if fwd_vel >= 1: 
 			brake = brake_force_value
 		# The max velocity you can go backwards
-		elif (fwd_vel >=  - max_back_vel):
+		elif fwd_vel >=  - max_back_vel:
 			engine_force = - engine_force_value
 		else: 
 			engine_force = 0.0
